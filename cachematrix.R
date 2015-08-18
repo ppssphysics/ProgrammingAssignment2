@@ -50,7 +50,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
     
-    ## Associate getinv() of x (might not be defined)
+    ## Associate getinv() of list x (might not be defined yet)
     m <- x$getinv()
     
     ## if getinv() for x defined in cashe (!=NULL), return inverse from cashe
@@ -60,7 +60,7 @@ cacheSolve <- function(x, ...) {
     }
     
     ## if getinv() for x not yet defined in cashe :
-    ## 1. get matrix from cashe: solve() won't work on a list
+    ## 1. get matrix from cashe: solve() won't work on list x
     ## 2. get inverse of matrix
     ## 3. set inverse in cashe
     data <- x$get()
