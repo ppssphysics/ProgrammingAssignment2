@@ -15,9 +15,9 @@
 
 makeCacheMatrix <- function(x = matrix()) {
     
-    ## Check that matrix is invertible, else quit
+    ## Check that matrix is invertible, else return NULL
     if(det(x)==0) {
-        message("matrix passed is not invertible (det(x) == 0). Returned Dummy!")
+        message("matrix passed is not invertible: det(x) == 0. Returned NULL!")
         return(NULL)
     } 
     
@@ -59,7 +59,7 @@ cacheSolve <- function(x, ...) {
         return(m)
     }
     
-    ## if getinv() for x does not yet defined in cashe :
+    ## if getinv() for x not yet defined in cashe :
     ## 1. new matrix set in the cashe
     ## 2. get inverse of x using solve
     ## 3. set inverse of x in cashe
