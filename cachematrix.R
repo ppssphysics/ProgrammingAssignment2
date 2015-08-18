@@ -61,7 +61,7 @@ cacheSolve <- function(x, ...) {
     }
     
     ## if getinv() for x not yet defined in cashe :
-    ## 1. get matrix from cashe: solve() won't work on list x
+    ## 1. get matrix from cashe (x is list not matrix!)
     ## 2. get inverse of matrix
     ## 3. set inverse in cashe
     data <- x$get()
