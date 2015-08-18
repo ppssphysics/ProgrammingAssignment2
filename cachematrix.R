@@ -5,7 +5,7 @@
 ## > tstmtx <- matrix(c(0, 7, -1, 0), 2, 2)
 ## > a <- makeCacheMatrix(tstmtx)
 ## > cacheSolve(a)
-## > cacheSolve(a) --> will return result from cahed data
+## > cacheSolve(a) --> will return result from cache
 
 
 
@@ -16,6 +16,7 @@
 makeCacheMatrix <- function(x = matrix()) {
     
     ## Check that matrix is invertible, else return NULL
+    ## Assignment said to assume invertible but wanted to give it a try.
     if(det(x)==0) {
         message("matrix passed is not invertible: det(x) == 0. Returned NULL!")
         return(NULL)
