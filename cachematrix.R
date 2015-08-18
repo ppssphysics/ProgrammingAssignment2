@@ -10,17 +10,12 @@
 
 
 
-## makeCacheMatrix()
+
+## makeCacheMatrix() function ---
 ## Function creates special "matrix" object that can cache its inverse.
+## We assume matrix is always invertible (assignment indications)
 
 makeCacheMatrix <- function(x = matrix()) {
-    
-    ## Check that matrix is invertible, else return NULL
-    ## Assignment said to assume invertible but wanted to give it a try.
-    if(det(x)==0) {
-        message("matrix passed is not invertible: det(x) == 0. Returned NULL!")
-        return(NULL)
-    } 
     
     # returned object initialization
     m <- NULL
@@ -45,9 +40,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve()
+
+
+
+## cacheSolve() function ---
 ## Function computes inverse of special "matrix" returned by makeCacheMatrix. 
 ## If inverse already calculated, cachesolve retrieves inverse from the cache.
+## We assume matrix is always invertible (assignment indications)
 
 cacheSolve <- function(x, ...) {
     
@@ -61,8 +60,8 @@ cacheSolve <- function(x, ...) {
     }
     
     ## if getinv() for x not yet defined in cashe :
-    ## 1. get matrix from cashe (x is list not matrix!)
-    ## 2. get inverse of matrix
+    ## 1. get matrix from cashe
+    ## 2. calculate inverse of matrix
     ## 3. set inverse in cashe
     data <- x$get()
     m <- solve(data, ...)
