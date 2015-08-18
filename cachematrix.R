@@ -60,9 +60,9 @@ cacheSolve <- function(x, ...) {
     }
     
     ## if getinv() for x not yet defined in cashe :
-    ## 1. new matrix set in the cashe
-    ## 2. get inverse of x using solve
-    ## 3. set inverse of x in cashe
+    ## 1. get matrix from cashe: solve() won't work on a list
+    ## 2. get inverse of matrix
+    ## 3. set inverse in cashe
     data <- x$get()
     m <- solve(data, ...)
     x$setinv(m)
