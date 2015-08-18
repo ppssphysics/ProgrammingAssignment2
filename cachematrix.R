@@ -20,8 +20,8 @@ makeCacheMatrix <- function(x = matrix()) {
     # returned object initialization
     m <- NULL
     
-    ## set() : set value of matrix in cashe
-    ## get() : get value of matrix from cashe
+    ## set() : set value of matrix in cache
+    ## get() : get value of matrix from cache
     
     set <- function(y) {
         x <<- y
@@ -29,8 +29,8 @@ makeCacheMatrix <- function(x = matrix()) {
     }
     get <- function() x
     
-    ## setinv() : set inverse of matrix in cashe
-    ## getinv() : get inverse of matrix from cashe
+    ## setinv() : set inverse of matrix in cache
+    ## getinv() : get inverse of matrix from cache
     
     setinv <- function(solve) m <<- solve
     getinv <- function() m
@@ -53,16 +53,16 @@ cacheSolve <- function(x, ...) {
     ## Associate getinv() of list x (might not be defined yet)
     m <- x$getinv()
     
-    ## if getinv() for x defined in cashe (!=NULL), return inverse from cashe
+    ## if getinv() for x defined in cache (!=NULL), return inverse from cache
     if(!is.null(m)) { 
         message("getting cached data")
         return(m)
     }
     
-    ## if getinv() for x not yet defined in cashe :
-    ## 1. get matrix from cashe
+    ## if getinv() for x not yet defined in cache :
+    ## 1. get matrix from cache
     ## 2. calculate inverse of matrix
-    ## 3. set inverse in cashe
+    ## 3. set inverse in cache
     data <- x$get()
     m <- solve(data, ...)
     x$setinv(m)
