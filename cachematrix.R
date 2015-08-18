@@ -2,10 +2,10 @@
 ## RProgramming / Week2 / ProgrammingAssignment2 
 
 ## Test Example
-## > tstmtx <- matrix(c(0, 7, -1, 0), 2, 2)
-## > a <- makeCacheMatrix(tstmtx)
-## > cacheSolve(a)
-## > cacheSolve(a) --> will return result from cache
+## > tstmtx <- matrix(c(3, 4, 2, 1), 2, 2)
+## > tstlst <- makeCacheMatrix(tstmtx)
+## > cacheSolve(tstlst)
+## > cacheSolve(tstlst) --> will return result from cache
 
 
 
